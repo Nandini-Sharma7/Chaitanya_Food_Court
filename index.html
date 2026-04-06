@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaitanya Food Court</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+            scroll-behavior: smooth;
+        }
+
+        /* 🔴 HEADER */
+        .top-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: red;
+            color: white;
+        }
+
+        /* TOP LINE */
+        .top-line {
+            text-align: center;
+            color: yellow;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* MAIN HEADER */
+        .middle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+        }
+
+        /* LEFT */
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .no-onion-box {
+            display: flex;
+            align-items: center;
+            background: #ffd800;
+            padding: 6px 10px;
+            border-radius: 8px;
+            gap: 6px;
+        }
+
+        .no-onion-box .text {
+            font-weight: bold;
+            color: black;
+            font-size: 12px;
+            line-height: 1.2;
+            white-space: nowrap;
+            /* 🔥 fix text break */
+        }
+
+        .no-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid red;
+        }
+
+
+        /* CENTER */
+        .center {
+            text-align: center;
+            flex: 1;
+        }
+
+        .center h1 {
+            font-size: 40px;
+        }
+
+        .center p {
+            font-size: 16px;
+        }
+
+        /* RIGHT */
+        .right-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .delivery-box {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .zomato {
+            background: #e23744;
+            padding: 5px;
+        }
+
+        .swiggy {
+            background: #fc8019;
+            padding: 5px;
+        }
+
+        .delivery-box img {
+            width: 35px;
+        }
+
+        /* PHONE FIX */
+        .phone {
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+            /* 🔥 fix number break */
+        }
+
+        /* BOTTOM */
+        .bottom-line {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+
+
+        /* CONTAINER */
+        .container {
+            padding: 20px;
+        }
+
+        /* SECTION CARD */
+        .section {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            animation: fadeUp 0.8s ease;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: red;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+
+        /* 🔥 BUTTON / HEADER GLOW HOVER */
+        .center h1:hover {
+            color: yellow;
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+
+        /* ITEMS */
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+            transition: 0.2s;
+        }
+
+        .item:hover {
+            transform: scale(1.02);
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+
+        /* 🔥 OFFERS SECTION */
+        .offers-container {
+            background: red;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        /* OFFER BOX */
+        .offer-box {
+            display: flex;
+            align-items: center;
+            background: #f5f0dc;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        /* LEFT BADGE */
+        .offer-badge {
+            background: #ffcc00;
+            color: red;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            min-width: 80px;
+            font-size: 12px;
+        }
+
+        /* RIGHT TEXT */
+        .offer-text {
+            flex: 1;
+            padding: 10px;
+            color: #2c2c7a;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* SUPER COMBO */
+        .super-combo {
+            background: #ffcc00;
+            border-radius: 10px;
+            padding: 12px;
+            color: black;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .super-combo h3 {
+            color: red;
+            margin-bottom: 5px;
+        }
+
+        /* EXTRA TEXT */
+        .offer-footer {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: yellow;
+        }
+
+        /* EXTRA ITEMS */
+        .extra-items {
+            margin-top: 10px;
+            background: red;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .extra-item {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-weight: bold;
+            padding: 5px 0;
+            border-bottom: 1px dashed #fff;
+        }
+
+        /* NO OFFER TEXT */
+        .no-offer {
+            text-align: center;
+            color: yellow;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 📱 MOBILE FIX */
+        @media (max-width: 768px) {
+
+            .middle-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                /* 🔥 FIX GAP ISSUE */
+                padding: 12px 0 12px 10px;
+            }
+
+            /* CENTER TEXT */
+            .center h1 {
+                font-size: 26px;
+            }
+
+            .center p {
+                font-size: 12px;
+            }
+
+            /* PHONE */
+            .phone {
+                font-size: 10px;
+            }
+
+            /* ICONS */
+            .delivery-box img,
+            .no-icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            /* LEFT BOX */
+            .no-onion-box {
+                padding: 5px 8px;
+            }
+
+            /* 🔥 RIGHT SIDE FIX */
+            .right-box {
+                margin-right: 0;
+            }
+
+            /* 🔥 EDGE TOUCH EFFECT */
+            .delivery-box {
+                border-radius: 8px 0 0 8px;
+            }
+
+            /* OPTIONAL SAFETY */
+            body {
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-header">
+
+        <!-- TOP NOTICE -->
+        <div class="top-line">
+            NO OFFER VALID ON FESTIVAL & NAVRATRAS
+        </div>
+
+        <!-- MAIN HEADER -->
+        <div class="middle-header">
+
+            <!-- LEFT -->
+            <div class="left">
+                <div class="no-onion-box">
+                    <span class="text">NO ONION<br>NO GARLIC</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAv8LIA-x66bshyYyVXU2Nh35YKgNhL_e4UQ&s"
+                        class="no-icon">
+                </div>
+            </div>
+
+            <!-- CENTER -->
+            <div class="center">
+                <h1 class="glow"> CHAITANYA </h1>
+                <p>FOOD COURT</p>
+            </div>
+
+            <!-- RIGHT -->
+            <!-- RIGHT -->
+            <div class="right-box">
+
+                <div class="delivery-box">
+                    <div class="zomato">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png">
+                    </div>
+                    <div class="swiggy">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Swiggy_logo.png">
+                    </div>
+                </div>
+
+                <div class="phone">
+                    💬 85750-86750
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="bottom-line">
+            PLEASE WAIT 10 TO 15 MINUTE AFTER ORDER
+        </div>
+
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>GRILLED BURGER🍔 ⬇</h2>
+            <div class="item"><span>CREAM BURGER</span><span class="price">45/-</span></div>
+            <div class="item"><span>CHEESE SLICE BURGER</span><span class="price">55/-</span></div>
+            <div class="item"><span>PANEER BURGER</span><span class="price">80/-</span></div>
+            <div class="item"><span>CFC SPECAIL BURGER</span><span class="price">100/-</span></div>
+        </div>
+
+        <div class="section">
+            <h2>SANDWICH🥪 ⬇</h2>
+            <div class="item"><span>Veg. Sandwich</span><span class="price">90/-</span></div>
+            <div class="item"><span>Veg. Cheese Sandwich</span><span class="price">100/-</span></div>
+            <div class="item"><span>Veg. Aloo Tikki Sandwich</span><span class="price">120/-</span></div>
+            <div class="item"><span>Paneer Sandwich</span><span class="price">130/-</span></div>
+            <div class="item"><span>Cheese Corn Sandwich</span><span class="price">140/-</span></div>
+            <div class="item"><span>CFC Special Sandwich</span><span class="price">170/-</span></div>
+            <div class="item"><span>Pizza Topping Sandwich</span><span class="price">200/-</span></div>
+        </div>
+
+
+        <div class="section">
+            <h2>SPRING ROLL🌯 ⬇</h2>
+            <div class="item"><span></span><span class="price">HALF | FULL</span></div>
+            <div class="item"><span>Noodles Roll</span><span class="price">30/- | 50/-</span></div>
+            <div class="item"><span>Crispy Noodles Roll</span><span class="price">35/- | 60/-</span></div>
+            <div class="item"><span>Crispy Vegetable Roll</span><span class="price">45/- | 80/-</span></div>
+            <div class="item"><span>Crispy Paneer Roll</span><span class="price">50/- | 90/-</span></div>
+            <div class="item"><span>Crispy Mushroom</span><span class="price">60/- | 100/-</span></div>
+            <div class="item"><span>Crispy Corn Roll</span><span class="price">60/- | 110/-</span></div>
+        </div>
+
+
+        <div class="section">
+            <h2>MOMOS🥟 ⬇</h2>
+            <h4>HALF | FULL</h4>
+            <div class="item"><span></span><span class="price">5PC | 10PC</span></div>
+            <div class="item"><span>Veg. Steam Momos</span><span class="price">35/- | 60/-</span></div>
+            <div class="item"><span>Veg. Fry Momos</span><span class="price">35/- | 60/-</span></div>
+            <div class="item"><span>Crispy Veg. Momos</span><span class="price">50/- | 90/-</span></div>
+            <div class="item"><span>Crispy Paneer Momos</span><span class="price">60/- | 100/-</span></div>
+            <div class="item"><span>Cheese Corn Momos</span><span class="price">60/- | 110/-</span></div>
+        </div>
+
+        <div class="section">
+            <h2>FRENCH FRIES🍟 ⬇</h2>
+            <p><b>Minimum Quantity</b></p>
+            <div class="item"><span>French Fries</span><span class="price">50/-</span></div>
+            <div class="item"><span>Peri Peri Fries</span><span class="price">100/-</span></div>
+        </div>
+
+
+        <div class="section">
+            <h2>PIZZA🍕 ⬇</h2>
+            <p><b>Extra Topping 30/- </b></p>
+            <div class="item"><span></span><span class="price">Sml 4PC | Lrg 6PC</span></div>
+            <div class="item"><span>Margherita Pizza</span><span class="price">120/- | 150/-</span></div>
+            <div class="item"><span>Capsicum Pizza</span><span class="price">120/- | 150/-</span></div>
+            <div class="item"><span>Capsicum Paneer</span><span class="price">140/- | 170/-</span></div>
+            <div class="item"><span>Mix Vegetable</span><span class="price">150/- | 180/-</span></div>
+            <div class="item"><span>Cheese Corn</span><span class="price">150/- | 180/-</span></div>
+            <div class="item"><span>Paneer Makhani</span><span class="price">170/- | 200/-</span></div>
+            <div class="item"><span>CFC Specail Pizza</span><span class="price">180/- | 210/-</span></div>
+            <div class="item"><span>Momos Pizza</span><span class="price">200/- | 230/-</span></div>
+            <div class="item"><span>Cheese Burst Pizza</span><span class="price">220/- | 250/-</span></div>
+        </div>
+
+
+
+        <div class="section">
+            <h2>PASTA🍝 ⬇</h2>
+            <div class="item"><span>Red Sauce Pasta</span><span class="price">150/-</span></div>
+            <div class="item"><span>White Sauce Pasta</span><span class="price">150/-</span></div>
+            <div class="item"><span>Punjabi Tadka Pasta</span><span class="price">180/-</span></div>
+            <div class="item"><span>Mix Sauce Pasta</span><span class="price">200/-</span></div>
+        </div>
+
+
+
+        <div class="section">
+            <h2>KULHAD🏺 ⬇</h2>
+            <div class="item"><span>Kuladh Pizza</span><span class="price">150/-</span></div>
+            <div class="item"><span>Kuladh Momos</span><span class="price">180/-</span></div>
+        </div>
+
+
+
+        <div class="section">
+            <h2>EXTRA DIP🥣 ⬇</h2>
+            <div class="item"><span>Tandori Dip</span><span class="price">20/-</span></div>
+            <div class="item"><span>Chipotle Dip</span><span class="price">20/-</span></div>
+            <div class="item"><span>Mint Dip</span><span class="price">20/-</span></div>
+        </div>
+
+
+        <div class="section">
+            <h2>EXTRAA🥤 ⬇</h2>
+            <div class="item"><span> Cold Drink</span><span class="price">30/-</span></div>
+            <div class="item"><span>Mineral Water</span><span class="price">20/-</span></div>
+            <div class="item"><span>Fruit Beer</span><span class="price">20/-</span></div>
+        </div>
+
+    </div>
+
+    <div class="offers-container">
+
+        <!-- TUESDAY -->
+        <div class="offer-box">
+            <div class="offer-badge">
+                COMBO<br>OFFERS<br>TUESDAY
+            </div>
+            <div class="offer-text">
+                BUY 1 PASTA<br>GET 1 PASTA FREE
+            </div>
+        </div>
+
+        <!-- WEDNESDAY -->
+        <div class="offer-box">
+            <div class="offer-badge">
+                COMBO<br>OFFERS<br>WEDNESDAY
+            </div>
+            <div class="offer-text">
+                BUY 3 BURGER<br>GET 1 BURGER FREE
+            </div>
+        </div>
+
+        <!-- THURSDAY -->
+        <div class="offer-box">
+            <div class="offer-badge">
+                COMBO<br>OFFERS<br>THURSDAY
+            </div>
+            <div class="offer-text">
+                BUY 1 LARGE PIZZA<br>GET 1 SMALL PIZZA FREE
+            </div>
+        </div>
+
+        <!-- SUPER COMBO -->
+        <div class="super-combo">
+            <h3>🔥 Super Combo Platters</h3>
+            <p>Veg Platter (Burger + Fries + Fruit Beer) — 99/-</p>
+            <p>Chinese Platter (Momos + Spring Roll + Fruit Beer) — 99/-</p>
+        </div>
+
+        <!-- PREPARATION TIME -->
+        <div class="offer-footer">
+            MINIMUM ORDER PREPARE 30 MINUTES
+        </div>
+
+        <!-- 🔥 EXTRA MENU (FROM IMAGE) -->
+        <div class="extra-items">
+            <div class="extra-item">
+                <span>VEG NOODLES</span>
+                <span>150/-</span>
+            </div>
+            <div class="extra-item">
+                <span>SINGAPURI NOODLES</span>
+                <span>180/-</span>
+            </div>
+            <div class="extra-item">
+                <span>MANCHURIAN DRY / GRAVY</span>
+                <span>180/-</span>
+            </div>
+            <div class="extra-item">
+                <span>CHEESE CHILLY DRY / GRAVY</span>
+                <span>280/-</span>
+            </div>
+        </div>
+
+        <!-- ❌ NO OFFER NOTICE -->
+        <div class="no-offer">
+            NO OFFER VALID ON FESTIVAL & NAVRATRAS
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Chaitanya Food Court | Made with ❤️</p>
+        <p>📞 Contact for QR Menu: <a href="tel:7696978239">7696978239</a></p>
+    </footer>
+
+</body>
+
+</html>
